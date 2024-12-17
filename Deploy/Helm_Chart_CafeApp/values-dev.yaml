@@ -1,5 +1,7 @@
 replicaCount: 1
 
+version: primary 
+
 mysql:
   image: sreedocker123/mompopcafedb:v1
   database: mom_pop_db
@@ -21,4 +23,3 @@ config:
   db_name: "mom_pop_db"
   db_user: "root"
   db_password: "Msois@123"
-
