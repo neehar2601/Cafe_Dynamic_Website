@@ -4,6 +4,7 @@ metadata:
   name: {{ .Release.Name }}-cafeweb
   labels:
     app: cafeapp
+    version: canary
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
