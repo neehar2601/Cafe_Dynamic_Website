@@ -4,7 +4,7 @@ metadata:
   name: {{ .Release.Name }}-cafeweb
   labels:
     app: cafeapp
-    version: {{ .Values.version | default "primary" }}  # Default to primary if version is not set
+    version: {{ .Values.version | default "canary" }}  # Default to primary if version is not set
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
