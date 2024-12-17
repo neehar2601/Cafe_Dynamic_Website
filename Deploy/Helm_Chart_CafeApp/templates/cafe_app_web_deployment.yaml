@@ -4,7 +4,7 @@ metadata:
   name: {{ .Release.Name }}-cafeweb
   labels:
     app: cafeapp
-    version: canary
+    version: canary  
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -16,6 +16,7 @@ spec:
       labels:
         app: cafeapp
         tier: frontend
+        version: canary  
     spec:
       containers:
       - name: cafeweb
@@ -42,4 +43,3 @@ spec:
       - name: app-config-volume
         configMap:
           name: {{ .Release.Name }}-cafeweb-config
-
