@@ -4,7 +4,7 @@ metadata:
   name: {{ .Release.Name }}-cafeweb
   labels:
     app: cafeapp
-    version: canary  
+    version: {{ .Values.version | default "primary" }}  # Default to primary if version is not set
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -16,7 +16,7 @@ spec:
       labels:
         app: cafeapp
         tier: frontend
-        version: canary  
+        version: {{ .Values.version | default "primary" }}  # Pod-level version label
     spec:
       containers:
       - name: cafeweb
