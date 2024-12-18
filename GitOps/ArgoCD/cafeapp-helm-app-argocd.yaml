@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://github.com/sreepathysois/Cafe_Dynamic_Website.git'
     targetRevision: HEAD
-    path: Deploy/Helm_Chart_CafeApp
+    path: Deploy/progressive_deployment
     helm:
       valueFiles:
         - values-dev.yaml
