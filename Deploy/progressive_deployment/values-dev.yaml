@@ -7,7 +7,7 @@ mysql:
 
 cafeweb:
   image: bacdocker/mompopcafeapp
-  tag: v30
+  tag: v31
 
 persistentVolume:
   size: 10Gi
