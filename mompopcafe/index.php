@@ -10,7 +10,7 @@
 
 	<div id="header" class="mainHeader">
 		<hr>
-		<div class="center">final Mom &amp; Pop Caf&eacute;</div>
+		<div class="center">final prod Mom &amp; Pop Caf&eacute;</div>
 	</div>
 	<br>
 	<?php
