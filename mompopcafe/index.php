@@ -10,7 +10,7 @@
 
 	<div id="header" class="mainHeader">
 		<hr>
-		<div class="center">Neehar Thejas Prod V3 Mom &amp; Pop Caf&eacute;</div>
+		<div class="center">final Mom &amp; Pop Caf&eacute;</div>
 	</div>
 	<br>
 	<?php
