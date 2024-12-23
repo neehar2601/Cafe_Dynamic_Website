@@ -4,21 +4,8 @@ metadata:
   name: {{ .Release.Name }}-cafeweb-rollout
   namespace: default
 spec:
-  replicas: {{ .Values.replicaCount }}
-  strategy:
-    canary:
-      steps:
-        - setWeight: 20
-        - pause: { duration: 30s }
-        - setWeight: 50
-        - pause: { duration: 30s }
-        - setWeight: 100
-      trafficRouting:
-        istio:
-          virtualService:
-            name: {{ .Release.Name }}-virtualservice
-            routes:
-              - primary
+  replicas: 1
+  revisionHistoryLimit: 2
   selector:
     matchLabels:
       app: cafeapp
@@ -46,11 +33,21 @@ spec:
             secretKeyRef:
               name: {{ .Release.Name }}-mysql-pass
               key: password
-        volumeMounts:
-        - name: app-config-volume
-          mountPath: /var/www/html/getAppParameters.php
-          subPath: getAppParameters.php
-      volumes:
-      - name: app-config-volume
-        configMap:
-          name: {{ .Release.Name }}-cafeweb-config
+  strategy:
+    canary:
+      stableService: {{ .Release.Name }}-cafeweb-stable
+      canaryService: {{ .Release.Name }}-cafeweb-canary
+      trafficRouting:
+        istio:
+          virtualService:
+            name: {{ .Release.Name }}-virtualservice
+            routes:
+            - primary
+      steps:
+      - setWeight: 20
+      - pause: {duration: 30s}
+      - setWeight: 40
+      - pause: {duration: 30s}
+      - setWeight: 60
+      - pause: {duration: 30s}
+      - setWeight: 100
