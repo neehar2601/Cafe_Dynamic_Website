@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: {{ .Release.Name }}-rollout
+  name: {{ .Release.Name }}-cafeweb-rollout
   namespace: default
 spec:
-  replicas: 3
+  replicas: {{ .Values.replicaCount }}
   strategy:
     canary:
       steps:
@@ -18,17 +18,39 @@ spec:
           virtualService:
             name: {{ .Release.Name }}-virtualservice
             routes:
-              - primary # matches the name defined in the VirtualService
+              - primary
   selector:
     matchLabels:
-      app: {{ .Release.Name }}
+      app: cafeapp
+      tier: frontend
   template:
     metadata:
       labels:
-        app: {{ .Release.Name }}
+        app: cafeapp
+        tier: frontend
     spec:
       containers:
-      - name: app
-        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+      - name: cafeweb
+        image: {{ .Values.cafeweb.image }}:{{ .Values.cafeweb.tag }}
         ports:
         - containerPort: 80
+        env:
+        - name: MYSQL_HOST
+          value: {{ .Release.Name }}-mysql
+        - name: MYSQL_DATABASE
+          value: {{ .Values.mysql.database }}
+        - name: MYSQL_USER
+          value: {{ .Values.mysql.user }}
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Release.Name }}-mysql-pass
+              key: password
+        volumeMounts:
+        - name: app-config-volume
+          mountPath: /var/www/html/getAppParameters.php
+          subPath: getAppParameters.php
+      volumes:
+      - name: app-config-volume
+        configMap:
+          name: {{ .Release.Name }}-cafeweb-config
