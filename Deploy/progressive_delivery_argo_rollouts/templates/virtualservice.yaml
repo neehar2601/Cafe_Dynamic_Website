@@ -7,7 +7,7 @@ spec:
   hosts:
   - "*"
   gateways:
-  - {{ .Release.Name }}-gateway
+  - cafeweb-rollout-gateway
   http:
   - name: primary
     route:
