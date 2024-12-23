@@ -23,7 +23,7 @@ spec:
         - containerPort: 80
         env:
         - name: MYSQL_HOST
-          value: {{ .Release.Name }}-mysql
+          value: cafeapp-argo-rollout-mysql
         - name: MYSQL_DATABASE
           value: {{ .Values.mysql.database }}
         - name: MYSQL_USER
