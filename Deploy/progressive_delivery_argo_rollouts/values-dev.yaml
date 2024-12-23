@@ -1,4 +1,4 @@
-replicaCount: 1
+replicaCount: 2
 
 mysql:
   image: sreedocker123/mompopcafedb:v1
@@ -7,7 +7,7 @@ mysql:
 
 cafeweb:
   image: sreedocker123/mompopcafeapp
-  tag: v3
+  tag: v2
 
 persistentVolume:
   size: 10Gi
