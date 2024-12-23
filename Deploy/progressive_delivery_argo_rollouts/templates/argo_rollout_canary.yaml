@@ -33,14 +33,14 @@ spec:
             secretKeyRef:
               name: {{ .Release.Name }}-mysql-pass
               key: password
-      #   volumeMounts:
-      #   - name: app-config-volume
-      #     mountPath: /var/www/html/getAppParameters.php
-      #     subPath: getAppParameters.php
-      # volumes:
-      # - name: app-config-volume
-      #   configMap:
-      #     name: {{ .Release.Name }}-cafeweb-config
+        volumeMounts:
+        - name: app-config-volume
+          mountPath: /var/www/html/getAppParameters.php
+          subPath: getAppParameters.php
+      volumes:
+      - name: app-config-volume
+        configMap:
+          name: {{ .Release.Name }}-cafeweb-config
   strategy:
     canary:
       stableService: {{ .Release.Name }}-cafeweb-stable
