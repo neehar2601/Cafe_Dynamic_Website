@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1beta1
 kind: Gateway
 metadata:
-  name: cafeweb-gateway
+  name: cafeweb-rollout-gateway
   namespace: default
 spec:
   selector:
