@@ -11,7 +11,7 @@ spec:
     failureCondition: result < 90
     provider:
       prometheus:
-        address: http://172.16.51.59:31090
+        address: http://172.16.51.59:32462
         query: |
           sum(rate(http_requests_total{job="cafeapp",status=~"2.."}[1m])) /
           sum(rate(http_requests_total{job="cafeapp"}[1m])) * 100
@@ -22,7 +22,7 @@ spec:
     failureCondition: result > 1
     provider:
       prometheus:
-        address: http://172.16.51.59:31090
+        address: http://172.16.51.59:32462
         query: |
           histogram_quantile(0.99, sum(rate(http_request_duration_seconds_bucket{job="cafeapp"}[1m])) by (le))
 
@@ -32,7 +32,7 @@ spec:
     failureCondition: result > 10
     provider:
       prometheus:
-        address: http://172.16.51.59:31090
+        address: http://172.16.51.59:32462
         query: |
           sum(rate(http_requests_total{job="cafeapp",status=~"5.."}[1m])) /
           sum(rate(http_requests_total{job="cafeapp"}[1m])) * 100
