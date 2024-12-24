@@ -53,7 +53,7 @@ spec:
             - primary
       steps:
       - setWeight: 20
-      - pause: {}
+      # - pause: {}
       - analysis:
           templates:
           - templateName: {{ .Release.Name }}-rollout-analysis
