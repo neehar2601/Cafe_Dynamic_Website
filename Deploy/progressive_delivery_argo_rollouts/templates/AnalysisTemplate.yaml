@@ -9,7 +9,7 @@ spec:
     interval: 30s
     successCondition: result >= 0.8
     failureCondition: result < 0.8
-    count: 1
+    count: 5
     failureLimit: 3
     provider:
       prometheus:
@@ -25,7 +25,8 @@ spec:
     interval: 30s
     successCondition: result <= 1000
     failureCondition: result > 1000
-    count: 1
+    count: 5
+    failureLimit: 3
     provider:
       prometheus:
         address: http://172.16.51.59:31090
