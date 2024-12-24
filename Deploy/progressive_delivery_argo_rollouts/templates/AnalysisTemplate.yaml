@@ -9,6 +9,7 @@ spec:
     interval: 30s
     successCondition: result > 95
     failureCondition: result < 90
+    count: 1  # Add count here to define the number of successful checks required
     provider:
       prometheus:
         address: http://172.16.51.59:32462
@@ -20,6 +21,7 @@ spec:
     interval: 30s
     successCondition: result < 0.5
     failureCondition: result > 1
+    count: 1  # Add count here for the request-latency metric
     provider:
       prometheus:
         address: http://172.16.51.59:32462
@@ -30,6 +32,7 @@ spec:
     interval: 30s
     successCondition: result < 5
     failureCondition: result > 10
+    count: 1  # Add count here for the error-rate metric
     provider:
       prometheus:
         address: http://172.16.51.59:32462
