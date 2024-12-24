@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: {{ .Release.Name }}-rollout-analysis
+  namespace: default
+spec:
+  metrics:
+  - name: success-rate
+    interval: 30s
+    successCondition: result > 95
+    failureCondition: result < 90
+    provider:
+      prometheus:
+        address: http://172.16.51.59:31090
+        query: |
+          sum(rate(http_requests_total{job="cafeapp",status=~"2.."}[1m])) /
+          sum(rate(http_requests_total{job="cafeapp"}[1m])) * 100
+
+  - name: request-latency
+    interval: 30s
+    successCondition: result < 0.5
+    failureCondition: result > 1
+    provider:
+      prometheus:
+        address: http://172.16.51.59:31090
+        query: |
+          histogram_quantile(0.99, sum(rate(http_request_duration_seconds_bucket{job="cafeapp"}[1m])) by (le))
+
+  - name: error-rate
+    interval: 30s
+    successCondition: result < 5
+    failureCondition: result > 10
+    provider:
+      prometheus:
+        address: http://172.16.51.59:31090
+        query: |
+          sum(rate(http_requests_total{job="cafeapp",status=~"5.."}[1m])) /
+          sum(rate(http_requests_total{job="cafeapp"}[1m])) * 100
