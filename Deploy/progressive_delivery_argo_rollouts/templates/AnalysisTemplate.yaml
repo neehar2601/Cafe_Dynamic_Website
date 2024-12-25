@@ -9,7 +9,7 @@ spec:
     interval: 10s
     successCondition: result >= 0.8
     failureCondition: result < 0.8
-    count: 5
+    count: 4
     failureLimit: 3
     provider:
       prometheus:
@@ -25,7 +25,7 @@ spec:
     interval: 10s
     successCondition: result <= 1000
     failureCondition: result > 1000
-    count: 5
+    count: 4
     failureLimit: 3
     provider:
       prometheus:
