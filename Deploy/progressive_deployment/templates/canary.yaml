@@ -4,10 +4,10 @@ metadata:
   name: {{ .Release.Name }}-cafeweb-canary
   namespace: default
 spec:
-  # targetRef:
-  #   apiVersion: apps/v1
-  #   kind: Deployment
-  #   name: {{ .Release.Name }}-cafeweb
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ .Release.Name }}-cafeweb
   service:
     port: 80
     targetPort: 80
