@@ -10,7 +10,7 @@
 
 	<div id="header" class="mainHeader">
 		<hr>
-		<div class="center">cloud compute msis Mom &amp; Pop Caf&eacute;</div>
+		<div class="center">MSIS Mom &amp; Pop Caf&eacute;</div>
 	</div>
 	<br>
 	<?php
