@@ -8,12 +8,12 @@ spec:
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: cafeapp
+      app: cafeapprollout
       tier: frontend
   template:
     metadata:
       labels:
-        app: cafeapp
+        app: cafeapprollout
         tier: frontend
     spec:
       containers:
