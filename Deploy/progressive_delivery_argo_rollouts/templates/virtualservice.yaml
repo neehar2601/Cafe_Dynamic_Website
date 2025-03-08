@@ -6,7 +6,7 @@ spec:
   hosts:
     - "*"
   gateways:
-    - cafeweb-gateway
+    - cafeapp-helm-gateway
   http:
     - name: primary  # ✅ Ensure this name matches Rollout configuration
       match:
