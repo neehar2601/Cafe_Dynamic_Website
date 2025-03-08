@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: {{ .Release.Name }}-mysql-pv-claim
   labels:
-    app: cafeapp
+    app: cafeapprollout
 spec:
   accessModes:
     - ReadWriteOnce
