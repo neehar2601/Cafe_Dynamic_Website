@@ -6,7 +6,7 @@ spec:
   hosts:
     - "*"
   gateways:
-    - {{ .Release.Name }}-virtualgateway
+    - cafeapp-helm-gateway
   http:
     - name: primary
       match:
