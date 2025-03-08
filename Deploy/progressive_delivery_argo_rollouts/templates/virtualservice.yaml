@@ -8,18 +8,18 @@ spec:
   gateways:
     - cafeweb-gateway
   http:
-    - name: primary  # ✅ Adding the missing route expected by Argo Rollouts
+    - name: primary  # ✅ Ensure this name matches Rollout configuration
       match:
         - uri:
-            prefix: "/argo-rollouts"
+            prefix: "/argo-rollouts"  # ✅ Keep prefix
       route:
         - destination:
-            host: cafeweb-rollouts-stable
+            host: cafeapp-argo-rollout-cafeweb-stable  # ✅ Stable service
             port:
               number: 80
           weight: 100
         - destination:
-            host: cafeweb-rollouts-canary
+            host: cafeapp-argo-rollout-cafeweb-canary  # ✅ Canary service
             port:
               number: 80
           weight: 0
