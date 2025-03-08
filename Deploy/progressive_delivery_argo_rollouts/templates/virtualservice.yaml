@@ -1,12 +1,12 @@
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
-  name: {{ .Release.Name }}-virtualgateway
+  name: {{ .Release.Name }}-virtualservice
 spec:
   hosts:
     - "*"
   gateways:
-    - {{ .Release.Name }}-virtualservice
+    - {{ .Release.Name }}-virtualgateway
   http:
     - name: primary  # ✅ Ensure this name matches Rollout configuration
       match:
