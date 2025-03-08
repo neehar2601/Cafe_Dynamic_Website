@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
-  name: cafeapp-argo-rollout-virtualservice
+  name: {{ .Release.Name }}-virtualservice
 spec:
   hosts:
     - "*"
