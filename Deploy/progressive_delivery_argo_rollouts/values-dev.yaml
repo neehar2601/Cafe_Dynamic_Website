@@ -11,7 +11,7 @@ cafeweb:
 
 persistentVolume:
   size: 10Gi
-  hostPath: "/mnt/data/dev"
+  hostPath: "/mnt/data/dev1"
   
 config:
   showServerInfo: "false"
