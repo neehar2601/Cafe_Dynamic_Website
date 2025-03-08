@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/bharathac5775/Cafe_Dynamic_Website.git'
+    repoURL: 'https://github.com/neehar2601/Cafe_Dynamic_Website.git'
     targetRevision: HEAD
     path: Deploy/progressive_deployment
     helm:
