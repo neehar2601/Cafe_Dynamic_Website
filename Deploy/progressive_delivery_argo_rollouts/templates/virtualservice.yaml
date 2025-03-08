@@ -6,7 +6,7 @@ spec:
   hosts:
     - "*"
   gateways:
-    - cafeapp-helm-gateway
+    - {{ .Release.Name }}-virtualservice
   http:
     - name: primary  # ✅ Ensure this name matches Rollout configuration
       match:
