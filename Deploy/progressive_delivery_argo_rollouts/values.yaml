@@ -14,7 +14,7 @@ cafeweb:
 
 persistentVolume:
   storageSize: "20Gi"
-  hostPath: "/mnt/data/default"
+  hostPath: "/mnt/data/dev1"
 
 service:
   type: ClusterIP
