@@ -13,7 +13,7 @@ spec:
     failureLimit: 3
     provider:
       prometheus:
-        address: http://172.16.51.59:31090
+        address: http://172.16.51.29:31563
         query: |
           scalar(
             sum(rate(istio_requests_total{app="cafeapp",destination_service="{{ .Release.Name }}-cafeweb-canary.default.svc.cluster.local",response_code=~"2.*"}[10m]))
@@ -29,7 +29,7 @@ spec:
     failureLimit: 3
     provider:
       prometheus:
-        address: http://172.16.51.59:31090
+        address: http://172.16.51.29:31563
         query: |
           scalar(
             sum(rate(istio_request_duration_milliseconds_sum{app="cafeapp",destination_service="{{ .Release.Name }}-cafeweb-canary.default.svc.cluster.local"}[1h]))
