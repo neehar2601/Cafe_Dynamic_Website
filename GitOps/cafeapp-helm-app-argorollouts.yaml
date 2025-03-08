@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cafeapp-helm
+  name: cafeapp-argo-rollout
   namespace: argocd
 spec:
   project: default
