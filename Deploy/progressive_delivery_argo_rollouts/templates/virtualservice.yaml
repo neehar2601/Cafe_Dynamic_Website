@@ -8,7 +8,7 @@ spec:
   gateways:
     - cafeweb-gateway
   http:
-    - name: argo-rollouts
+    - name: primary  # ✅ Adding the missing route expected by Argo Rollouts
       match:
         - uri:
             prefix: "/argo-rollouts"
@@ -23,4 +23,3 @@ spec:
             port:
               number: 80
           weight: 0
-
