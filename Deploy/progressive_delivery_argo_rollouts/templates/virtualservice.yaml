@@ -1,23 +1,26 @@
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
-  name: {{ .Release.Name }}-virtualservice
-  namespace: default
+  name: cafeweb-virtualservice
 spec:
   hosts:
-  - "*"
+    - "*"
   gateways:
-  - cafeweb-rollout-gateway
+    - cafeweb-gateway
   http:
-  - name: primary
-    route:
-    - destination:
-        host: {{ .Release.Name }}-cafeweb-stable
-        port:
-          number: 80
-      weight: 100
-    - destination:
-        host: {{ .Release.Name }}-cafeweb-canary
-        port:
-          number: 80
-      weight: 0
+    - name: argo-rollouts
+      match:
+        - uri:
+            prefix: "/argo-rollouts"
+      route:
+        - destination:
+            host: cafeweb-rollouts-stable
+            port:
+              number: 80
+          weight: 100
+        - destination:
+            host: cafeweb-rollouts-canary
+            port:
+              number: 80
+          weight: 0
+
