@@ -12,6 +12,8 @@ spec:
       match:
         - uri:
             prefix: "/argo-rollouts/"
+        - uri:
+            prefix: "/argo-rollouts"
       route:
         - destination:
             host: cafeapp-argo-rollout-cafeweb-stable.default.svc.cluster.local  # ✅ Add namespace explicitly
