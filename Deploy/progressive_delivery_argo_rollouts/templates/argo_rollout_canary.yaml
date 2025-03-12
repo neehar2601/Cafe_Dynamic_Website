@@ -35,7 +35,7 @@ spec:
               key: password
         volumeMounts:
         - name: app-config-volume
-          mountPath: /var/www/html/getAppParameters.php
+          mountPath: /var/www/html/argo-rollouts/getAppParameters.php
           subPath: getAppParameters.php
       volumes:
       - name: app-config-volume
