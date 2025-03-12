@@ -6,7 +6,7 @@ mysql:
   user: root
 
 cafeweb:
-  image: sreedocker123/mompopcafeapp
+  image: neehar2601/mompopcafearg
   tag: v1
 
 persistentVolume:
