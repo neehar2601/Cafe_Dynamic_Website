@@ -5,8 +5,6 @@
 # COPY . /var/www/html/
 # EXPOSE 80
 
-
-
 FROM php:7.4-apache
 
 # Update Debian repository URL and install necessary extensions
