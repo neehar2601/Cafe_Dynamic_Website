@@ -11,7 +11,7 @@
 
 	<div id="header" class="mainHeader">
 		<hr>
-		<div class="center">MSIS Mom &amp; Pop Caf&eacute;</div>
+		<div class="center">MSIS &amp; CDC Caf&eacute;</div>
 	</div>
 	<br>
 	<?php
