@@ -1,23 +1,52 @@
+# apiVersion: networking.istio.io/v1beta1
+# kind: VirtualService
+# metadata:
+#   name: cafeapp-argo-rolloutbg-virtualservice
+#   namespace: default
+# spec:
+#   hosts:
+#     - "*"
+#   gateways:
+#     - cafeapp-helm-gateway
+#   http:
+#     - name: "primary"
+#       match:
+#         - uri:
+#             prefix: /argo-rolloutsbg
+#         - uri:
+#             prefix: /argo-rolloutsbg/
+#       route:
+#         - destination:
+#             host: cafeapp-argo-rolloutbg-cafeweb-stable.default.svc.cluster.local
+#             port:
+#               number: 80
+#           weight: 100
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: cafeapp-argo-rolloutbg-virtualservice
-  namespace: default
 spec:
   hosts:
     - "*"
   gateways:
     - cafeapp-helm-gateway
   http:
-    - name: "primary"
+    - name: primary
       match:
         - uri:
-            prefix: /argo-rolloutsbg
+            prefix: "/argo-rolloutsbg/"
         - uri:
-            prefix: /argo-rolloutsbg/
+            prefix: "/argo-rolloutsbg"
+      rewrite:
+        uri: /
       route:
         - destination:
             host: cafeapp-argo-rolloutbg-cafeweb-stable.default.svc.cluster.local
             port:
               number: 80
           weight: 100
+        - destination:
+            host: cafeapp-argo-rolloutbg-cafeweb-canary.default.svc.cluster.local
+            port:
+              number: 80
+          weight: 0
