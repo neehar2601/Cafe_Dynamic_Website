@@ -7,7 +7,7 @@ mysql:
 
 cafeweb:
   image: neehar2601/mompopcafebg
-  tag: v1
+  tag: v2
 
 persistentVolume:
   size: 10Gi
