@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-cafeweb-config
   labels:
-    app: cafeapp
+    app: cafeapprollout1
 data:
   getAppParameters.php: |
     <?php
