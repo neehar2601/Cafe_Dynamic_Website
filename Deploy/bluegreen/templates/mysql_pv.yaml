@@ -3,7 +3,7 @@ kind: PersistentVolume
 metadata:
   name: {{ .Release.Name }}-mysql-pv
   labels:
-    app: cafeapprollout
+    app: cafeapprollout1
 spec:
   capacity:
     storage: {{ .Values.persistentVolume.size }}
