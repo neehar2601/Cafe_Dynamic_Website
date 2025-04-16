@@ -34,11 +34,9 @@ spec:
     - name: primary
       match:
         - uri:
-            prefix: "/argo-rolloutsbg/"
+            prefix: "/argorolloutsbg/"
         - uri:
-            prefix: "/argo-rolloutsbg"
-      rewrite:
-        uri: /argo-rollouts/
+            prefix: "/argorolloutsbg"
       route:
         - destination:
             host: cafeapp-argo-rolloutbg-cafeweb-stable.default.svc.cluster.local
