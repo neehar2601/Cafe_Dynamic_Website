@@ -45,7 +45,7 @@ spec:
     blueGreen:
       activeService: {{ .Release.Name }}-cafeweb-stable
       previewService: {{ .Release.Name }}-cafeweb-preview
-      autoPromotionEnabled: false  # Set to true to skip manual promotion
+      autoPromotionEnabled: true  
       prePromotionAnalysis:
         templates:
         - templateName: {{ .Release.Name }}-rollout-analysis
