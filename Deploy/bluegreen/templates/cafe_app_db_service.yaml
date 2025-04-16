@@ -9,5 +9,5 @@ spec:
   ports:
     - port: 3306
   selector:
-    app: cafeapprollout
+    app: cafeapprollout1
     tier: mysql
