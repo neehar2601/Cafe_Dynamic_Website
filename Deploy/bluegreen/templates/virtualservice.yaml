@@ -11,9 +11,9 @@ spec:
     - name: primary
       match:
         - uri:
-            prefix: "/argo-rollouts/"
+            prefix: "/argo-rolloutsbg/"
         - uri:
-            prefix: "/argo-rollouts"
+            prefix: "/argo-rolloutsbg"
       route:
         - destination:
             host: cafeapp-argo-rolloutbg-cafeweb-stable.default.svc.cluster.local  # ✅ Add namespace explicitly
