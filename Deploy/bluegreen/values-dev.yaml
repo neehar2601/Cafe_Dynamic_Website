@@ -6,8 +6,8 @@ mysql:
   user: root
 
 cafeweb:
-  image: neehar2601/argo-rollouts
-  tag: v2
+  image: neehar2601/mompopcafebg
+  tag: v1
 
 persistentVolume:
   size: 10Gi
