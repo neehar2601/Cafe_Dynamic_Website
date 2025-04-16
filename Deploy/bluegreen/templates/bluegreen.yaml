@@ -1,0 +1,30 @@
+apiVersion: flagger.app/v1beta1
+kind: Canary
+metadata:
+  name: {{ .Release.Name }}-canary
+  namespace: default
+spec:
+  provider: istio
+  promoteFull: true
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ .Release.Name }}-cafeweb
+  service:
+    port: 80
+    targetPort: 80
+    gateways:
+      - {{ .Release.Name }}-gateway
+    hosts:
+      - "*"
+  analysis:
+    interval: 30s
+    threshold: 3
+    iterations: 1
+    metrics:
+      - name: request-success-rate
+        threshold: 99
+        interval: 30s
+      - name: request-duration
+        threshold: 500
+        interval: 30s
