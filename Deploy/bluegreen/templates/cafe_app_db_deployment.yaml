@@ -3,18 +3,18 @@ kind: Deployment
 metadata:
   name: {{ .Release.Name }}-mysql
   labels:
-    app: cafeapprollout
+    app: cafeapprollout1
 spec:
   selector:
     matchLabels:
-      app: cafeapprollout
+      app: cafeapprollout1
       tier: mysql
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: cafeapprollout
+        app: cafeapprollout1
         tier: mysql
     spec:
       containers:
@@ -33,7 +33,7 @@ spec:
           name: mysql
         volumeMounts:
         - name: mysql-persistent-storage
-          mountPath: /var/lib/mysql
+          mountPath: /var/lib/mysql1
       volumes:
       - name: mysql-persistent-storage
         persistentVolumeClaim:
