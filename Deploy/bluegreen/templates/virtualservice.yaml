@@ -44,7 +44,7 @@ spec:
               number: 80
           weight: 100
         - destination:
-            host: cafeapp-argo-rolloutbg-cafeweb-canary.default.svc.cluster.local
+            host: cafeapp-argo-rolloutbg-cafeweb-preview.default.svc.cluster.local
             port:
               number: 80
           weight: 0
