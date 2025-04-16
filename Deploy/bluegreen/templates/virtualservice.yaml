@@ -38,7 +38,7 @@ spec:
         - uri:
             prefix: "/argo-rolloutsbg"
       rewrite:
-        uri: /
+        uri: /argo-rollouts
       route:
         - destination:
             host: cafeapp-argo-rolloutbg-cafeweb-stable.default.svc.cluster.local
