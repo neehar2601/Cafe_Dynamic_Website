@@ -31,6 +31,21 @@ spec:
   gateways:
     - cafeapp-helm-gateway
   http:
+    # Route for preview/test version
+    - name: preview
+      match:
+        - uri:
+            prefix: "/argorolloutsbg-preview/"
+        - uri:
+            prefix: "/argorolloutsbg-preview"
+      route:
+        - destination:
+            host: cafeapp-argo-rolloutbg-cafeweb-preview.default.svc.cluster.local
+            port:
+              number: 80
+          weight: 100
+
+    # Route for stable (live) version
     - name: primary
       match:
         - uri:
@@ -43,8 +58,3 @@ spec:
             port:
               number: 80
           weight: 100
-        - destination:
-            host: cafeapp-argo-rolloutbg-cafeweb-preview.default.svc.cluster.local
-            port:
-              number: 80
-          weight: 0
